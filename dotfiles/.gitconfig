@@ -1,0 +1,7 @@
+[user]
+    name = Haley Clark
+    email = gmail.com@hdeanclark
+[core]
+    editor = vim
+[pull]
+    rebase = false
