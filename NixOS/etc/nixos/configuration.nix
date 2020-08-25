@@ -153,6 +153,7 @@
   users.users.hal = {
     isNormalUser = true;
     uid = 1000;
+    shell = pkgs.bash;
     extraGroups = [ "wheel" "networkmanager" ];
     #openssh.authorizedKeys.keys = [ "ssh-dss AAAAB3Nza... hal@halclark.ca" ];
   };
