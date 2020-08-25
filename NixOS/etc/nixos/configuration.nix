@@ -10,6 +10,12 @@
       ./hardware-configuration.nix
     ];
 
+  hardware.opengl.enable = true;
+  hardware.opengl.extraPackages = with pkgs; [
+    rocm-opencl-icd
+    rocm-runtime-ext
+  ];
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -95,6 +101,8 @@
     alsaUtils
     alsaTools
     rxvt-unicode
+    mesa
+    clinfo
   ];
 
   nixpkgs.config.allowUnfree = true;
