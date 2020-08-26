@@ -99,9 +99,14 @@
     dmenu
     gmrun
     imagemagick
+    libheif
+    feh
+    exiftool
+    exiv2
     alsaUtils
     alsaTools
     rxvt-unicode
+    dcmtk
     mesa
     clinfo
   ];
