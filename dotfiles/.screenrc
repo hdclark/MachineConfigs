@@ -1,0 +1,7 @@
+
+deflogin off
+zombie qr
+screen -t 'Port forwarding to trip' 0 /home/hal/Port_fwd_to_trip.sh
+screen -t 'Port forwarding to luderro' 1 bash -c "printf 'Press enter after connecting to trip...' ; read ; /home/hal/Port_fwd_to_luderro.sh"
+screen -t 'Trip' 2 bash -c "printf 'Press enter after connecting to trip...' ; read ; /home/hal/Dropbox/Code/screen_on.sh trip"
+
