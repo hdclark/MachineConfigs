@@ -114,3 +114,10 @@ nnoremap <F7> :call Disciplinarian_Load_File()<CR>
 " Tell vim to let the terminal interpret mouse clicks -- don't use vim yanking with mouse.
 set mouse=r
 
+" Ignore mouse altogether. The behaviour keeps changing and is annoying / adds nothing.
+set mouse=
+
+" Re-enable per-file modelines on Debian (disabled system-wide be default).
+" The 'modelines' parameter controls the number of lines to search at top and bottom of each file.
+set modeline
+set modelines=5

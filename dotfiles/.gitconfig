@@ -3,5 +3,8 @@
     email = gmail.com@hdeanclark
 [core]
     editor = vim
+[annex]
+    # Rely on system-wide ssh caching. Otherwise git-annex asks for a password every connection.
+    sshcaching = false
 [pull]
     rebase = false

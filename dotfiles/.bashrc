@@ -9,6 +9,7 @@ alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
 let HISTSIZE=500000
+let HISTFILESIZE=500000
 
 alias vi='vim'
 
