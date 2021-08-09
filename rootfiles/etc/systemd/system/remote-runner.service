@@ -1,0 +1,16 @@
+[Unit]
+Description=Remote runner service
+ConditionPathExists=|/usr/bin
+After=network.target
+
+[Service]
+#Type=simple
+User=hal
+Group=users
+ExecStart=/bin/bash -c "rm -rf /tmp/rr && git clone -q --depth 1 'https://github.com/hdclark/RemoteRunner.git' /tmp/rr/ && chmod 777 /tmp/rr/Run.sh && /tmp/rr/Run.sh || true && rm -rf /tmp/rr"
+RestartSec=30
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
