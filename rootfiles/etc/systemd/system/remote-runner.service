@@ -7,8 +7,9 @@ After=network.target
 #Type=simple
 User=hal
 Group=users
-ExecStart=/bin/bash -c "rm -rf /tmp/rr && git clone -q --depth 1 'https://github.com/hdclark/RemoteRunner.git' /tmp/rr/ && chmod 777 /tmp/rr/Run.sh && /tmp/rr/Run.sh || true && rm -rf /tmp/rr"
-RestartSec=30
+# Ignore SSL on embedded systems, where the clock and/or certificates are likely to be out of date.
+ExecStart=/bin/bash -c "rm -rf /tmp/rr && GIT_SSL_NO_VERIFY=true git clone -q --depth 1 'https://github.com/hdclark/RemoteRunner.git' /tmp/rr/ && chmod 777 /tmp/rr/Run.sh && /tmp/rr/Run.sh || true && rm -rf /tmp/rr"
+RestartSec=300
 Restart=always
 
 [Install]
