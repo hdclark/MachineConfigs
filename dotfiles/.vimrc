@@ -56,12 +56,16 @@ nnoremap <F2> {gq}
 nnoremap <F3> :m .+1<CR>==
 nnoremap <F4> :m .-2<CR>==
 
+" Toggle on/off autoindentation. Useful to disable for pasting via X primary buffer.
+nnoremap <F5> :set autoindent!<CR>
+
 " Run a local script called './compile.sh'. Nice for LaTeX and C++.
 map  <silent> <F6> :silent execute "!./compile.sh &>/dev/null & "<CR>:redraw!<CR>
 
+nnoremap <F7> :call Disciplinarian_Load_File()<CR>
 
-" Toggle on/off autoindentation. Useful to disable for pasting via X primary buffer.
-nnoremap <F5> :set autoindent!<CR>
+" Search for today's datestamp. Useful for jumping to today in disciplinarian.
+nnoremap <F8> :let @a = system("echo -n $(date '+%Y%m%_0d')")<CR>:execute '/' . @a <CR>
 
 nnoremap <F9>  :read !printf 'Work Began = ' ; date '+\%Y\%m\%d-\%H\%M\%S'<CR>
 nnoremap <F10> :read !printf 'Work Ended = ' ; date '+\%Y\%m\%d-\%H\%M\%S'<CR>
@@ -108,8 +112,6 @@ function! Disciplinarian_Load_File()
         silent execute "vsplit " . fpath 
     endif
 endfunction
-
-nnoremap <F7> :call Disciplinarian_Load_File()<CR>
 
 " Tell vim to let the terminal interpret mouse clicks -- don't use vim yanking with mouse.
 set mouse=r
