@@ -1,0 +1,17 @@
+[Unit]
+Description=Run PACS receiver service
+ConditionPathExists=|/usr/bin
+After=network.target
+
+[Service]
+#Environment='AUTOSSH_GATETIME=0'
+#Type=simple
+User=hal
+Group=hal
+ExecStart=/home/hal/Dropbox/Code/Launch_DICOM_storescp.sh
+RestartSec=30
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
