@@ -1,0 +1,30 @@
+#!/bin/sh
+
+
+# UUID of the usb key partition holding the key.
+part_uuid="2722ed68-8609-4ca5-8cc3-63bc810590ba"
+
+# UUID of the actual key's filename.
+key_uuid="7d297ce2-5637-11ed-a36c-1f36d0990e51"
+
+sleep 5
+if [ -e "/dev/disk/by-uuid/${part_uuid}" ] ; then
+    if [ ! -e /skipkey ]; then
+        mkdir -p /skipkey
+        sleep 1
+    fi
+
+    if mount -o ro -t ext4 UUID="${part_uuid}" /skipkey ; then
+        if [ -f "/skipkey/${key_uuid}.lek" ]; then
+            cat "/skipkey/${key_uuid}.lek"
+            umount /skipkey || true
+            rmdir /skipkey || true
+            exit
+        fi
+        umount /skipkey || true
+    fi
+
+fi
+
+/usr/lib/cryptsetup/askpass "    **** Enter disk encryption password OR insert USB key and press enter: ****"
+
