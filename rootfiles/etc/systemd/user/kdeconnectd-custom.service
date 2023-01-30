@@ -1,0 +1,15 @@
+[Unit]
+Description=KDEconnectd custom runner service
+ConditionPathExists=|/usr/bin
+After=network.target
+
+[Service]
+#Type=simple
+# Run as the user sarah like:
+#     systemctl --user start kdeconnectd-custom.service
+ExecStart=/bin/bash -c "while true ; do printf 'Retrying...\n' ; /usr/lib/x86_64-linux-gnu/libexec/kdeconnectd ; sleep 1 ; done"
+RestartSec=5
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
