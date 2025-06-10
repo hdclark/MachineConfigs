@@ -10,6 +10,7 @@ User=hal
 Group=hal
 # trip:
 #ExecStart=/usr/bin/autossh -M 2123 -g -N -X -R 2122:localhost:22 -o TCPKeepAlive=yes -o ExitOnForwardFailure=yes -o "ServerAliveInterval 60" -o "ServerAliveCountMax 3" -o "ControlMaster=no" -o "ControlPath=/dev/null" -o "ControlPersist=no" root@redacted -i /home/hal/.ssh/id_rsa
+#ExecStart=/usr/bin/autossh -M 3323 -g -N -X -R 3322:localhost:22 -o TCPKeepAlive=yes -o ExitOnForwardFailure=yes -o "ServerAliveInterval 60" -o "ServerAliveCountMax 3" -o "ControlMaster=no" -o "ControlPath=/dev/null" -o "ControlPersist=no" root@redacted -i /home/hal/.ssh/id_rsa
 ## bowax:
 #ExecStart=/usr/bin/autossh -M 2323 -g -N -X -R 2322:localhost:22 -o TCPKeepAlive=yes -o ExitOnForwardFailure=yes -o "ServerAliveInterval 60" -o "ServerAliveCountMax 3" -o "ControlMaster=no" -o "ControlPath=/dev/null" -o "ControlPersist=no" root@redacted -i /home/hal/.ssh/id_rsa
 ## ant01:
