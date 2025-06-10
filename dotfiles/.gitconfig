@@ -1,10 +1,13 @@
 [user]
-    name = Haley Clark
-    email = gmail.com@hdeanclark
+	name = Haley Clark
+	email = gmail.com@hdeanclark
+    #email = haley.clark@bccancer.bc.ca
 [core]
     editor = vim
 [annex]
     # Rely on system-wide ssh caching. Otherwise git-annex asks for a password every connection.
     sshcaching = false
 [pull]
-    rebase = false
+	rebase = false
+[init]
+	defaultBranch = master
