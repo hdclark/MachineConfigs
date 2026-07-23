@@ -1,5 +1,6 @@
+# This is Git's per-user configuration file.
 [user]
-	name = Haley Clark
+	name = Hal Clark
 	email = gmail.com@hdeanclark
     #email = haley.clark@bccancer.bc.ca
 [core]
