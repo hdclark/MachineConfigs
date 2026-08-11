@@ -95,9 +95,24 @@ set nojoinspaces
 " Insert previous line's indentation when pressing [return].
 set autoindent
 
+" Automatically wrap ordinary text and recognize list prefixes.
+set formatoptions+=n
+" Do not automatically continue/format comments.
+set formatoptions-=c
+set formatoptions-=r
+set formatoptions-=o
+
+" Vim normally treats "- " as a special comment/list leader.
+" Remove that so formatlistpat handles it instead.
+set comments-=fb:-
+
+" Support numbered lists, "-", and "-->".
+let &formatlistpat =
+      \ '^\s*\%(\d\+[\]:.)}]\s*\|-->\s\+\|-\s\+\)'
+
+
 " Assume a width of 120 instead of 80.
 set tw=120
-
 
 " Try to open the file associated with the Disciplinarian task UID (like 'DT...') underneath the cursor.
 function! Disciplinarian_Load_File()
@@ -123,3 +138,7 @@ set mouse=
 " The 'modelines' parameter controls the number of lines to search at top and bottom of each file.
 set modeline
 set modelines=5
+
+" Override TERM variable, especially helpful for GNU screen.
+"set term=xterm-256color
+
